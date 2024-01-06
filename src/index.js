@@ -8,10 +8,12 @@ const hbs = require("hbs")
 const collection = require ("./mongodb")
 //const port = process.env.PORT || 3000
 const templatePath = path.join(__dirname,'../templates')
+const publicPath = path.join(__dirname, '../public')
 
 app.use(express.json())
 app.set ("view engine", "hbs")
 app.set("views",templatePath)
+app.use(express.static(publicPath))
 app.use(express.urlencoded ({extended:false}))
 
 //app.get('/', (req, res) => res.send('Hello World!'))
